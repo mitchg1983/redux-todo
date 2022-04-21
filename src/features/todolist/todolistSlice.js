@@ -5,11 +5,19 @@ const initialState = {
   list: [
     {
       listName: "Your fist todo item",
+      priority: "1",
       id: "1",
+      status: "open",
+      createdAt: "-date-",
+      notes: "",
     },
     {
       listName: "A new todo awaits...",
+      priority: "2",
       id: "2",
+      status: "open",
+      createdAt: "-date-",
+      notes: "",
     },
   ],
 };
@@ -27,7 +35,10 @@ export const todolistSlice = createSlice({
   initialState,
   reducers: {
     update: (state, action) => {
-      state.list = action.payload;
+      state.todolist.list = action.payload;
+    },
+    add: (state, action) => {
+      state.todolist.list = [...state.todolist.list, action.payload];
     },
   },
 });
